@@ -167,36 +167,36 @@ export const Dashboard: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-        <div className="bg-bg-card border border-border rounded-xl p-6 hover:border-accent transition-colors group">
-          <div className="flex gap-2 items-center text-text-secondary text-sm font-bold uppercase tracking-wider mb-2">
-            <Activity size={16} className="group-hover:text-accent transition-colors" /> Pontos Semana
+        <div className="bg-bg-card border-none rounded-r-xl border-l-[3px] border-l-accent p-6 hover:bg-bg-secondary transition-colors group shadow-md shadow-black/20">
+          <div className="flex gap-2 items-center text-text-secondary text-[11px] font-sans font-bold uppercase tracking-widest mb-3">
+            <Activity size={24} className="group-hover:text-accent transition-colors" /> Pontos Semana
           </div>
-          <div className="text-4xl font-display font-bold text-accent">
-            {loadingData ? <Loader2 size={28} className="animate-spin" /> : <>{stats.weekly_points} <span className="text-lg text-text-muted">pts</span></>}
+          <div className="text-[32px] leading-none font-display font-bold text-accent">
+            {loadingData ? <Loader2 size={24} className="animate-spin" /> : <>{stats.weekly_points} <span className="text-lg text-text-muted">pts</span></>}
           </div>
         </div>
-        <div className="bg-bg-card border border-border rounded-xl p-6 hover:border-border transition-colors group">
-          <div className="flex gap-2 items-center text-text-secondary text-sm font-bold uppercase tracking-wider mb-2">
+        <div className="bg-bg-card border-none rounded-r-xl border-l-[3px] border-l-accent p-6 hover:bg-bg-secondary transition-colors group shadow-md shadow-black/20">
+          <div className="flex gap-2 items-center text-text-secondary text-[11px] font-sans font-bold uppercase tracking-widest mb-3">
             <TrophyIcon /> Total de pontos
           </div>
-          <div className="text-4xl font-display font-bold text-text-primary">
-            {loadingData ? <Loader2 size={28} className="animate-spin" /> : <>{stats.total_points} <span className="text-lg text-text-muted">pts</span></>}
+          <div className="text-[32px] leading-none font-display font-bold text-text-primary">
+            {loadingData ? <Loader2 size={24} className="animate-spin" /> : <>{stats.total_points} <span className="text-lg text-text-muted">pts</span></>}
           </div>
         </div>
-        <div className="bg-bg-card border border-border rounded-xl p-6">
-          <div className="flex gap-2 items-center text-text-secondary text-sm font-bold uppercase tracking-wider mb-2">
-            <ImageIcon size={16} /> Prints enviadas
+        <div className="bg-bg-card border-none rounded-r-xl border-l-[3px] border-l-accent p-6 hover:bg-bg-secondary transition-colors group shadow-md shadow-black/20">
+          <div className="flex gap-2 items-center text-text-secondary text-[11px] font-sans font-bold uppercase tracking-widest mb-3">
+            <ImageIcon size={24} /> Prints enviadas
           </div>
-          <div className="text-4xl font-display font-bold text-text-primary">
-            {loadingData ? <Loader2 size={28} className="animate-spin" /> : totalSubs}
+          <div className="text-[32px] leading-none font-display font-bold text-text-primary">
+            {loadingData ? <Loader2 size={24} className="animate-spin" /> : totalSubs}
           </div>
         </div>
-        <div className="bg-bg-card border border-border rounded-xl p-6">
-          <div className="flex gap-2 items-center text-text-secondary text-sm font-bold uppercase tracking-wider mb-2">
-            <PieChart size={16} /> Taxa de aprovação
+        <div className="bg-bg-card border-none rounded-r-xl border-l-[3px] border-l-accent p-6 hover:bg-bg-secondary transition-colors group shadow-md shadow-black/20">
+          <div className="flex gap-2 items-center text-text-secondary text-[11px] font-sans font-bold uppercase tracking-widest mb-3">
+            <PieChart size={24} /> Taxa de aprovação
           </div>
-          <div className="text-4xl font-display font-bold text-warning">
-            {loadingData ? <Loader2 size={28} className="animate-spin" /> : `${approvalRate}%`}
+          <div className="text-[32px] leading-none font-display font-bold text-warning">
+            {loadingData ? <Loader2 size={24} className="animate-spin" /> : `${approvalRate}%`}
           </div>
         </div>
       </div>
@@ -204,22 +204,25 @@ export const Dashboard: React.FC = () => {
       <div className="grid lg:grid-cols-2 gap-8">
         
         <section>
-          <h2 className="text-2xl font-display font-bold text-text-primary mb-4 flex items-center gap-2">
+          <h2 className="text-2xl font-display font-bold text-text-primary mb-5 flex items-center gap-3 border-l-4 border-accent pl-3">
             <UploadCloud className="text-accent" /> Enviar Booyah
           </h2>
-          <div className="bg-bg-card border border-border rounded-xl p-6">
+          <div className="bg-bg-card border-none rounded-xl p-6 shadow-md shadow-black/20">
             {!preview ? (
               <div 
                 {...getRootProps()} 
                 className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all
-                  ${isDragActive ? 'border-accent bg-accent/5 scale-[1.02]' : 'border-border hover:border-accent/50 hover:bg-bg-secondary'}`}
+                  ${isDragActive ? 'border-accent bg-accent/5 scale-[1.02]' : 'border-[#333] hover:border-text-muted hover:bg-bg-secondary'}`}
               >
                 <input {...getInputProps()} />
-                <div className="bg-bg-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-border">
-                   <UploadCloud className="text-text-secondary" size={28} />
+                <div className="bg-bg-primary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 border border-border shadow-inner">
+                   <UploadCloud className="text-text-secondary" size={32} />
                 </div>
-                <p className="text-text-primary font-medium mb-2 text-lg">Arraste sua print aqui ou clique</p>
-                <p className="text-sm text-text-secondary">Apenas PNG/JPG até 5MB</p>
+                <p className="text-text-primary font-bold mb-2 text-lg">Arraste sua print aqui ou clique</p>
+                <p className="text-sm text-text-secondary mb-4">Apenas PNG/JPG até 5MB</p>
+                <div className="inline-block bg-bg-secondary border border-border px-4 py-2 rounded-lg text-xs font-medium text-text-primary">
+                  Cada Booyah aprovado = <span className="text-accent font-bold">1 ponto</span> no ranking
+                </div>
               </div>
             ) : (
               <div className="space-y-4">
@@ -245,7 +248,7 @@ export const Dashboard: React.FC = () => {
         </section>
 
         <section>
-          <h2 className="text-2xl font-display font-bold text-text-primary mb-4 flex items-center gap-2">
+          <h2 className="text-2xl font-display font-bold text-text-primary mb-5 flex items-center gap-3 border-l-4 border-text-secondary pl-3">
             <Clock className="text-text-secondary" /> Meus Envios Recentes
           </h2>
           <div className="space-y-3">
@@ -265,29 +268,29 @@ export const Dashboard: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   key={sub.id} 
-                  className="bg-bg-card border border-border rounded-xl p-3 flex gap-4 items-center hover:bg-bg-secondary transition-colors"
+                  className="bg-bg-card border-none rounded-xl p-4 flex gap-4 items-center hover:bg-bg-secondary transition-colors shadow-md shadow-black/20"
                 >
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden bg-bg-primary shrink-0 border border-border">
-                    <img src={sub.image_url} alt="Booyah" loading="lazy" className="w-full h-full object-cover opacity-80" />
+                  <div className="w-[64px] h-[64px] rounded-[8px] overflow-hidden bg-bg-primary shrink-0 border border-border">
+                    <img src={sub.image_url} alt="Booyah" loading="lazy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-text-primary font-bold truncate text-sm lg:text-base">
-                      {sub.image_url.split('/').pop() || 'booyah'}
+                    <h3 className="text-text-primary font-bold truncate text-base">
+                      Booyah submetido
                     </h3>
-                    <div className="text-xs text-text-secondary mb-2">{formatDate(sub.created_at)}</div>
+                    <div className="text-xs text-text-secondary mb-3">{formatDate(sub.created_at)}</div>
                     <div className="flex items-center gap-2">
                       {sub.status === 'PENDING' && (
-                        <span className="bg-warning/10 text-warning px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 border border-warning/20">
+                        <span className="bg-warning/10 text-warning px-3 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1 border border-warning/20 w-fit">
                           <Clock size={12} /> Aguardando
                         </span>
                       )}
                       {sub.status === 'APPROVED' && (
-                        <span className="bg-accent/10 text-accent px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 border border-accent/20">
+                        <span className="bg-accent/10 text-accent px-3 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1 border border-accent/20 w-fit">
                           <CheckCircle size={12} /> Aprovado (+1)
                         </span>
                       )}
                       {sub.status === 'REJECTED' && (
-                        <span className="bg-danger/10 text-danger px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 border border-danger/20">
+                        <span className="bg-danger/10 text-danger px-3 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1 border border-danger/20 w-fit">
                           <XCircle size={12} /> Recusado
                         </span>
                       )}

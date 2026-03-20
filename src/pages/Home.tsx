@@ -43,25 +43,27 @@ export const Home: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-4 sm:p-8">
-      <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4">
+      <div className="flex flex-col sm:flex-row items-end justify-between mb-8 gap-4 border-b-2 border-accent pb-6">
         <div>
-          <h1 className="text-4xl font-display font-bold text-text-primary mb-2">Ranking de Booyahs</h1>
-          <p className="text-text-secondary">Os melhores jogadores da comunidade.</p>
+          <div className="bg-accent/10 border border-accent/20 text-accent text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+            SEMANA ATUAL
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-display font-bold text-text-primary tracking-wide leading-none mb-1">RANKING SEMANAL</h1>
+          <p className="text-text-secondary text-lg">Comunidade Free Fire — semana atual</p>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:items-end gap-3">
+          <div className="bg-accent/10 text-accent px-3 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 border border-accent/20">
+            <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
+            Auto-refresh (5m)
+          </div>
           <button
             onClick={fetchRanking}
             disabled={loading}
-            className="text-text-secondary hover:text-accent transition-colors disabled:opacity-50"
-            title="Atualizar agora"
+            className="text-text-secondary hover:text-accent transition-colors disabled:opacity-50 text-sm flex items-center gap-2"
           >
-            <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
+            Atualizar agora
           </button>
-          <div className="bg-accent-dim text-accent px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2 border border-accent/20">
-            <RefreshCw size={14} />
-            Atualiza a cada 5 min
-          </div>
         </div>
       </div>
 
@@ -95,21 +97,21 @@ export const Home: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
                     key={user.id} 
-                    className={`p-4 flex items-center gap-4 transition-colors relative overflow-hidden group bg-row-bg ${index === 0 ? 'bg-accent/5' : ''}`}
+                    className={`h-[72px] px-4 flex items-center gap-4 transition-colors relative overflow-hidden group ${index === 0 ? 'bg-[#1a0d00]' : 'bg-row-bg'}`}
                   >
-                    <div className="relative z-10 w-8 text-center font-display font-bold text-xl text-text-muted shrink-0">
-                      {index === 0 ? <Trophy className="text-warning mx-auto" size={24} /> : 
-                       index === 1 ? <Medal className="text-text-muted mx-auto" size={24} /> : 
-                       index === 2 ? <Medal className="text-warning mx-auto" size={24} /> : 
-                       `#${index + 1}`}
+                    <div className="relative z-10 w-8 text-center font-display font-bold text-xl text-[#555] shrink-0">
+                      {index === 0 ? <Trophy className="text-[#FFD700] mx-auto" size={24} /> : 
+                       index === 1 ? <Medal className="text-[#C0C0C0] mx-auto" size={24} /> : 
+                       index === 2 ? <Medal className="text-[#CD7F32] mx-auto" size={24} /> : 
+                       <span className="text-[14px]">#{index + 1}</span>}
                     </div>
 
-                    <div className="relative z-10 w-12 h-12 rounded-full border-2 border-border group-hover:border-accent transition-colors bg-bg-secondary flex items-center justify-center text-text-secondary font-bold text-lg shrink-0">
+                    <div className={`relative z-10 w-[44px] h-[44px] rounded-full border-[2px] transition-colors bg-bg-secondary flex items-center justify-center text-text-secondary font-bold text-lg shrink-0 ${index === 0 ? 'border-[#FFD700]' : index === 1 ? 'border-[#C0C0C0]' : index === 2 ? 'border-[#CD7F32]' : 'border-[#2a2a2a] group-hover:border-accent'}`}>
                       {getInitials(user.nick)}
                     </div>
 
                     <div className="relative z-10 w-32 sm:w-48 shrink-0">
-                      <h3 className="text-lg font-bold text-text-primary truncate">{user.nick}</h3>
+                      <h3 className="text-[16px] font-[600] text-text-primary truncate">{user.nick}</h3>
                     </div>
 
                     {/* THIN PROGRESS BAR COLUMN */}
@@ -140,9 +142,9 @@ export const Home: React.FC = () => {
                       />
                     </div>
 
-                    <div className="relative z-10 text-right shrink-0 ml-auto sm:ml-0">
-                      <div className="text-2xl font-display font-bold text-accent">{points}</div>
-                      <div className="text-xs text-text-secondary uppercase tracking-wider">Pontos</div>
+                    <div className="relative z-10 text-right shrink-0 ml-auto sm:ml-0 flex flex-col justify-center">
+                      <div className="text-[22px] font-display text-accent leading-none tracking-wide">{points}</div>
+                      <div className="text-[11px] text-text-secondary tracking-widest leading-none mt-1">PONTOS</div>
                     </div>
                   </motion.div>
                 );
@@ -150,6 +152,13 @@ export const Home: React.FC = () => {
             </AnimatePresence>
           </div>
         )}
+      </div>
+      
+      <div className="mt-8 text-center">
+        <p className="text-text-secondary mb-3">Faça parte do ranking</p>
+        <a href="/login" className="inline-block bg-accent text-bg-primary font-bold px-8 py-3 rounded-md hover:bg-opacity-90 transition-all shadow-lg hover:shadow-accent/20">
+          Entrar na comunidade
+        </a>
       </div>
     </div>
   );

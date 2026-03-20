@@ -11,9 +11,9 @@ export const Navbar: React.FC = () => {
   const getInitials = (name: string) => name.slice(0, 2).toUpperCase();
 
   return (
-    <nav className="bg-bg-card border-b border-border p-4 sticky top-0 z-50 transition-colors">
+    <nav className="bg-bg-card border-b-2 border-accent p-4 sticky top-0 z-50 transition-colors">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-2xl font-display font-bold text-text-primary">
+        <Link to="/" className="flex items-center gap-2 text-[20px] font-display font-[700] text-text-primary tracking-wide">
           <Zap className="text-accent" />
           RankFire
         </Link>
