@@ -153,7 +153,50 @@ export const Home: React.FC = () => {
           </div>
         )}
       </div>
+
+      <div className="w-full border-t border-[#1a1a1a] my-10"></div>
       
+      <div className="bg-[#0e0e0e] border border-[#2a2a2a] rounded-[16px] p-8 lg:p-10 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 w-full shadow-2xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="flex-1 relative z-10 text-center md:text-left">
+          <div className="bg-[#1a0d00] text-accent text-xs font-bold px-4 py-1.5 rounded-[20px] inline-flex items-center gap-2 mb-4 border border-accent/20 tracking-widest uppercase">
+            🏆 Prêmio da Semana
+          </div>
+          <h2 className="text-[64px] font-display text-text-primary leading-none mb-1 tracking-wide">R$ 100</h2>
+          <p className="text-xl font-bold text-text-primary mb-2 font-sans">para quem dar mais Booyah na semana</p>
+          <p className="text-[#666] text-sm mb-6 max-w-sm mx-auto md:mx-0 font-sans leading-relaxed">
+            O jogador com mais Booyahs aprovados até domingo à meia-noite leva tudo.
+          </p>
+          <a href="/login" className="inline-block bg-accent text-bg-primary font-bold px-8 py-3.5 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-accent/20 whitespace-nowrap text-sm tracking-wide">
+            Quero competir &rarr;
+          </a>
+        </div>
+
+        <div className="w-full md:w-[280px] shrink-0 bg-[#161616] border border-[#2a2a2a] rounded-xl p-6 relative z-10 flex flex-col items-center">
+          <div className="text-[11px] font-bold text-[#666] uppercase tracking-widest mb-4 font-sans">Líder Atual</div>
+          {ranking.length > 0 ? (
+            <>
+              <div className="relative w-[64px] h-[64px] rounded-full border-2 border-[#FFD700] bg-[#1a0d00] flex items-center justify-center text-accent font-bold text-2xl mb-3 shadow-[0_0_20px_rgba(255,215,0,0.15)]">
+                {getInitials(ranking[0].nick)}
+                <div className="absolute -bottom-2 -right-2 bg-[#FFD700] text-black w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ring-2 ring-[#161616]">
+                  1
+                </div>
+              </div>
+              <div className="font-bold text-lg text-text-primary mb-1 font-sans">{ranking[0].nick}</div>
+              <div className="text-[32px] font-display text-accent leading-none tracking-wide mb-4">{ranking[0].weeklyPoints} <span className="text-sm text-[#666] font-sans tracking-normal">pts</span></div>
+              <div className="w-full h-1.5 bg-[#222] rounded-full overflow-hidden">
+                <div className="h-full bg-accent rounded-full" style={{ width: '100%' }} />
+              </div>
+            </>
+          ) : (
+            <div className="py-6 flex flex-col items-center opacity-30">
+              <Trophy size={48} className="text-accent mb-2" />
+              <div className="text-[11px] font-bold uppercase tracking-widest font-sans">Aguardando...</div>
+            </div>
+          )}
+        </div>
+      </div>
       <div className="mt-8 text-center">
         <p className="text-text-secondary mb-3">Faça parte do ranking</p>
         <a href="/login" className="inline-block bg-accent text-bg-primary font-bold px-8 py-3 rounded-md hover:bg-opacity-90 transition-all shadow-lg hover:shadow-accent/20">
