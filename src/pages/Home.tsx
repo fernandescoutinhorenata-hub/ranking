@@ -20,8 +20,9 @@ export const Home: React.FC = () => {
       .from('users')
       .select('id, nick, weekly_points')
       .eq('status', 'ATIVO')
+      .eq('role', 'PLAYER')
       .order('weekly_points', { ascending: false })
-      .limit(10);
+      .limit(50);
 
     if (!error && data) {
       setRanking(data.map(u => ({ id: u.id, nick: u.nick, weeklyPoints: u.weekly_points })));
