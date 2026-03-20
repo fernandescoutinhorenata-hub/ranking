@@ -224,7 +224,7 @@ export const Dashboard: React.FC = () => {
             ) : (
               <div className="space-y-4">
                 <div className="relative aspect-video rounded-lg overflow-hidden bg-bg-primary border border-border">
-                  <img src={preview} alt="Preview" className="w-full h-full object-contain" />
+                  <img src={preview} alt="Preview" loading="lazy" className="w-full h-full object-contain" />
                   <button 
                     onClick={() => { setFile(null); setPreview(null); }}
                     className="absolute top-2 right-2 bg-black/60 hover:bg-danger text-text-primary p-2 rounded-full transition-colors backdrop-blur-md"
@@ -268,7 +268,7 @@ export const Dashboard: React.FC = () => {
                   className="bg-bg-card border border-border rounded-xl p-3 flex gap-4 items-center hover:bg-bg-secondary transition-colors"
                 >
                   <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-lg overflow-hidden bg-bg-primary shrink-0 border border-border">
-                    <img src={sub.image_url} alt="Booyah" className="w-full h-full object-cover opacity-80" />
+                    <img src={sub.image_url} alt="Booyah" loading="lazy" className="w-full h-full object-cover opacity-80" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-text-primary font-bold truncate text-sm lg:text-base">

@@ -341,7 +341,7 @@ export const Admin: React.FC = () => {
                   className="relative w-full sm:w-48 aspect-video bg-bg-primary rounded-lg overflow-hidden cursor-pointer group border border-border shrink-0"
                   onClick={() => setSelectedImage(sub.image_url)}
                 >
-                  <img src={sub.image_url} alt="Booyah" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                  <img src={sub.image_url} alt="Booyah" loading="lazy" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/40 transition-opacity">
                     <Maximize2 className="text-text-primary" size={24} />
                   </div>
@@ -386,7 +386,7 @@ export const Admin: React.FC = () => {
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
         >
-          <img src={selectedImage} alt="Booyah Fullscreen" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+          <img src={selectedImage} alt="Booyah Fullscreen" loading="lazy" className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
           <button className="absolute top-4 right-4 text-text-primary hover:text-danger bg-black/50 rounded-full p-2 transition-colors cursor-pointer" onClick={() => setSelectedImage(null)}>
             <X size={24} />
           </button>
