@@ -165,7 +165,7 @@ export const Home: React.FC = () => {
           </div>
           <h2 className="text-[64px] font-display text-text-primary leading-none mb-1 tracking-wide">R$ 100</h2>
           <p className="text-xl font-bold text-text-primary mb-2 font-sans">para quem dar mais Booyah na semana</p>
-          <p className="text-[#666] text-sm mb-6 max-w-sm mx-auto md:mx-0 font-sans leading-relaxed">
+          <p className="text-[#666] text-sm mb-6 max-w-sm mx-auto md:mx-0 font-sans leading-relaxed" style={{ hyphens: 'none' }}>
             O jogador com mais Booyahs aprovados até domingo à meia-noite leva tudo.
           </p>
           <a href="https://discord.gg/nP9vrqAT8K" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent text-bg-primary font-bold px-8 py-3.5 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-accent/20 whitespace-nowrap text-sm tracking-wide">
