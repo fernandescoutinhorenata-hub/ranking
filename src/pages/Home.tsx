@@ -168,7 +168,7 @@ export const Home: React.FC = () => {
           <p className="text-[#666] text-sm mb-6 max-w-sm mx-auto md:mx-0 font-sans leading-relaxed">
             O jogador com mais Booyahs aprovados até domingo à meia-noite leva tudo.
           </p>
-          <a href="/login" className="inline-block bg-accent text-bg-primary font-bold px-8 py-3.5 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-accent/20 whitespace-nowrap text-sm tracking-wide">
+          <a href="https://discord.gg/nP9vrqAT8K" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent text-bg-primary font-bold px-8 py-3.5 rounded-lg hover:opacity-90 transition-all shadow-lg hover:shadow-accent/20 whitespace-nowrap text-sm tracking-wide">
             Quero competir &rarr;
           </a>
         </div>
